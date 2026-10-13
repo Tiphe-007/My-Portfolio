@@ -1,167 +1,1122 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#f6f9ff" />
-    <meta name="description" content="Vishesh Yadav is a BCA student and web developer exploring interactive design, motion, and 3D on the web." />
-    <title>Vishesh Yadav | BCA Student &amp; Web Developer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  </head>
-  <body>
-    <a class="skip-link" href="#main">Skip to content</a>
-    <div class="ambient" aria-hidden="true"></div>
-
-    <header class="site-header">
-      <a class="brand" href="#top" aria-label="Vishesh Yadav, home">
-        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
-        <span>Vishesh Yadav<span class="brand-period">.</span></span>
-      </a>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f8ff">
+  <meta name="description" content="Vishesh Yadav is a BCA student learning web development at SRMU.">
+  <title>Vishesh Yadav — BCA student & web developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --page: #f5f8ff;
+      --paper: #fff;
+      --ink: #17213d;
+      --muted: #59647e;
+      --line: #dce3f3;
+      --blue: #819dff;
+      --pink: #ffb3d1;
+      --yellow: #ffe16b;
+      --navy: #111a35;
+      --navy-card: #1a2545;
+      --shadow: 0 18px 48px rgb(37 57 110 / 10%);
+      --body-font: "DM Sans", sans-serif;
+      --heading-font: "Bricolage Grotesque", sans-serif;
+      font-family: var(--body-font);
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --page: #10172c;
+      --paper: #1b2540;
+      --ink: #f2f4ff;
+      --muted: #b5bfd9;
+      --line: #36415f;
+      --blue: #9cafFF;
+      --pink: #f59dc4;
+      --yellow: #ffdd64;
+      --navy: #0b1124;
+      --navy-card: #151e37;
+      --shadow: 0 18px 48px rgb(0 0 0 / 24%);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    body {
+      min-width: 320px;
+      margin: 0;
+      overflow-x: hidden;
+      background:
+        radial-gradient(ellipse at 8% 8%, rgb(153 187 255 / 25%), transparent 36rem),
+        radial-gradient(ellipse at 90% 24%, rgb(255 186 217 / 25%), transparent 33rem),
+        radial-gradient(ellipse at 58% 58%, rgb(255 229 130 / 13%), transparent 34rem),
+        var(--page);
+      color: var(--ink);
+      font: 400 16px/1.7 var(--body-font);
+      transition: background-color .25s ease, color .25s ease;
+    }
+    button, input, textarea { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    a { color: inherit; }
+    button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible,
+    [contenteditable="plaintext-only"]:focus-visible {
+      outline: 3px solid #536fff;
+      outline-offset: 4px;
+    }
+    button { color: inherit; }
+    img { display: block; max-width: 100%; }
+    .container { width: min(1120px, calc(100% - 48px)); margin-inline: auto; }
+    .site-header {
+      position: sticky;
+      z-index: 20;
+      top: 0;
+      border-bottom: 1px solid color-mix(in srgb, var(--line) 78%, transparent);
+      background: color-mix(in srgb, var(--page) 88%, transparent);
+      backdrop-filter: blur(18px);
+    }
+    .header-inner {
+      display: flex;
+      min-height: 76px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+    .brand {
+      flex: 0 0 auto;
+      font: 700 18px/1 var(--heading-font);
+      text-decoration: none;
+      letter-spacing: -.04em;
+    }
+    .brand span { color: #526bdf; }
+    .main-nav { display: flex; align-items: center; justify-content: center; gap: clamp(12px, 2.1vw, 27px); }
+    .main-nav a {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: color .18s ease;
+    }
+    .main-nav a:hover, .footer-links a:hover { color: #526bdf; }
+    .theme-toggle, .icon-button {
+      display: inline-flex;
+      min-width: 40px;
+      min-height: 40px;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--paper);
+      color: var(--ink);
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 700;
+      transition: transform .18s ease, border-color .18s ease;
+    }
+    .theme-toggle:hover, .icon-button:hover { transform: translateY(-2px); border-color: #819dff; }
+    .section { padding-block: 104px; }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 14px;
+      color: #596fd6;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .13em;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { width: 20px; height: 2px; background: var(--pink); content: ""; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { font-family: var(--heading-font); letter-spacing: -.045em; }
+    h2 { margin-bottom: 18px; font-size: clamp(38px, 5vw, 60px); line-height: 1.03; }
+    .section-intro { max-width: 590px; margin-bottom: 0; color: var(--muted); }
+    .hero {
+      display: grid;
+      min-height: min(740px, calc(100svh - 76px));
+      grid-template-columns: 1.1fr .9fr;
+      align-items: center;
+      gap: 54px;
+      padding-block: 82px 110px;
+    }
+    .hero-copy { position: relative; z-index: 1; }
+    .hero h1 {
+      max-width: 750px;
+      margin: 0 0 22px;
+      font-size: clamp(76px, 11.2vw, 142px);
+      font-weight: 800;
+      line-height: .87;
+      letter-spacing: -.085em;
+    }
+    .hero-name-line { display: block; }
+    .last-name { position: relative; display: inline-block; z-index: 0; }
+    .last-name::after {
+      position: absolute;
+      z-index: -1;
+      right: -.02em;
+      bottom: .02em;
+      left: -.02em;
+      height: .24em;
+      border-radius: 5px;
+      background: var(--yellow);
+      content: "";
+      transform: scaleX(0);
+      transform-origin: left center;
+      animation: highlight-sweep .75s .75s cubic-bezier(.2,.75,.25,1) forwards;
+    }
+    .hero-intro { max-width: 460px; margin-bottom: 26px; color: var(--muted); font-size: 17px; }
+    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+    .button {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 19px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { background: var(--ink); color: var(--page); box-shadow: 0 8px 18px rgb(23 33 61 / 16%); }
+    .button-secondary { border-color: var(--line); background: var(--paper); color: var(--ink); }
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 37px;
+      padding: 8px 13px;
+      border: 1px solid color-mix(in srgb, var(--line) 75%, transparent);
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--paper) 72%, transparent);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: #34b77b; box-shadow: 0 0 0 0 rgb(52 183 123 / 45%); animation: pulse 1.8s infinite; }
+    .hero-art { position: relative; min-height: 370px; display: grid; place-items: center; }
+    .hero-blob {
+      position: absolute;
+      width: min(100%, 420px);
+      aspect-ratio: 1;
+      border: 1px solid rgb(91 112 191 / 18%);
+      border-radius: 44% 56% 65% 35% / 45% 39% 61% 55%;
+      background: linear-gradient(145deg, rgb(255 255 255 / 74%), rgb(216 227 255 / 48%) 48%, rgb(255 216 232 / 57%));
+      box-shadow: var(--shadow);
+      transform: rotate(-8deg);
+    }
+    .hero-blob::before, .hero-blob::after {
+      position: absolute;
+      border: 1px solid rgb(91 112 191 / 20%);
+      border-radius: 50%;
+      content: "";
+    }
+    .hero-blob::before { inset: 12%; }
+    .hero-blob::after { inset: 24%; border-style: dashed; }
+    .hero-sticker {
+      position: absolute;
+      z-index: 1;
+      display: grid;
+      width: 116px;
+      height: 116px;
+      place-items: center;
+      border: 1px solid rgb(23 33 61 / 12%);
+      border-radius: 32px;
+      background: var(--yellow);
+      box-shadow: 11px 12px 0 #ed9fc1;
+      color: #202a4b;
+      font: 800 41px/1 var(--heading-font);
+      transform: rotate(9deg);
+      animation: sticker-in .65s .35s both cubic-bezier(.2,.8,.2,1);
+    }
+    .sparkle { position: absolute; color: #596fd6; font-size: 32px; }
+    .sparkle-one { top: 13%; right: 12%; }
+    .sparkle-two { bottom: 11%; left: 9%; color: #e76c9d; font-size: 23px; }
+    .hero-note { position: absolute; right: 0; bottom: 7%; color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; transform: rotate(-7deg); }
+    .about-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 76px; align-items: start; }
+    .about-copy p:not(.eyebrow) { max-width: 620px; color: var(--muted); font-size: 16px; }
+    .facts-card { padding: 25px 27px; border: 1px solid var(--line); border-radius: 18px; background: var(--paper); box-shadow: var(--shadow); }
+    .facts-card h3 { margin-bottom: 15px; font-size: 21px; }
+    .fact-row { display: flex; justify-content: space-between; gap: 16px; padding: 11px 0; border-bottom: 1px solid var(--line); font-size: 13px; }
+    .fact-row:last-child { padding-bottom: 0; border: 0; }
+    .fact-row span:first-child { color: var(--muted); }
+    .fact-row strong { text-align: right; }
+    .photo-section, .resources-section { overflow: hidden; background: var(--navy); color: #f5f6ff; }
+    .photo-section .eyebrow, .resources-section .eyebrow { color: #c1ccf5; }
+    .photo-section h2, .resources-section h2 { color: #fff; }
+    .photo-section .section-intro, .resources-section .section-intro { color: #c1cbe2; }
+    .photo-grid { display: grid; grid-template-columns: 1fr .9fr; align-items: center; gap: 80px; }
+    .photo-frame-wrap { position: relative; width: min(100%, 405px); justify-self: center; padding: 18px 18px 32px; transform: rotate(-3deg); animation: photo-float 5s ease-in-out infinite; }
+    .photo-offset { position: absolute; inset: 34px 0 0 37px; border-radius: 16px; background: var(--yellow); transform: rotate(6deg); }
+    .photo-frame {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      min-height: 375px;
+      place-items: center;
+      overflow: hidden;
+      border: 10px solid #fff;
+      border-bottom-width: 34px;
+      border-radius: 9px;
+      background: linear-gradient(145deg, #d4e2ff, #fbd5e5 58%, #ffeaa1);
+      box-shadow: 0 20px 50px rgb(0 0 0 / 28%);
+      color: #17213d;
+    }
+    .photo-frame img { width: 100%; height: 100%; min-height: 375px; object-fit: cover; }
+    .photo-placeholder { font: 800 clamp(70px, 11vw, 118px)/1 var(--heading-font); letter-spacing: -.1em; }
+    .photo-caption { position: absolute; right: 0; bottom: 4px; left: 0; z-index: 2; color: #2a3150; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-align: center; text-transform: uppercase; }
+    .photo-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 22px; }
+    .photo-controls .button { border-color: #4b5571; background: transparent; color: #fff; cursor: pointer; }
+    .photo-hint { margin: 9px 0 0; color: #bac5df; font-size: 11px; }
+    .timeline { position: relative; max-width: 760px; margin: 46px auto 0; padding-left: 39px; }
+    .timeline::before { position: absolute; top: 13px; bottom: 16px; left: 12px; width: 2px; background: linear-gradient(var(--blue), var(--pink), var(--yellow)); content: ""; }
+    .timeline-list { display: grid; gap: 18px; margin: 0; padding: 0; list-style: none; }
+    .timeline-item { position: relative; display: grid; grid-template-columns: 1fr auto; gap: 5px 18px; padding: 19px 21px; border: 1px solid var(--line); border-radius: 14px; background: var(--paper); box-shadow: 0 7px 24px rgb(37 57 110 / 5%); }
+    .timeline-item::before { position: absolute; top: 23px; left: -35px; width: 12px; height: 12px; border: 3px solid var(--page); border-radius: 50%; background: #647fe8; box-shadow: 0 0 0 2px #647fe8; content: ""; }
+    .step-title { margin: 0; font: 700 19px/1.3 var(--heading-font); }
+    .step-description { grid-column: 1 / -1; margin: 0; color: var(--muted); font-size: 13px; }
+    .step-status { align-self: center; padding: 4px 9px; border-radius: 99px; background: #e4f7eb; color: #197349; font-size: 10px; font-weight: 700; white-space: nowrap; }
+    :root[data-theme="dark"] .step-status { background: #183d33; color: #a7ebc8; }
+    .section-heading-row { display: flex; align-items: end; justify-content: space-between; gap: 25px; margin-bottom: 33px; }
+    .project-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .project-card {
+      position: relative;
+      min-height: 265px;
+      padding: 25px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      transition: transform .22s ease, box-shadow .22s ease;
+    }
+    .project-card:hover { transform: translateY(-5px); box-shadow: 0 22px 45px rgb(37 57 110 / 14%); }
+    .project-card::after { position: absolute; right: -35px; bottom: -75px; width: 155px; height: 155px; border-radius: 50%; background: var(--card-accent, #e3eaff); content: ""; opacity: .8; }
+    .project-card:nth-child(3n + 2) { --card-accent: #ffe2ee; }
+    .project-card:nth-child(3n) { --card-accent: #fff0bd; }
+    .project-number { position: relative; z-index: 1; display: inline-block; margin-bottom: 47px; color: #647fe8; font-size: 11px; font-weight: 700; letter-spacing: .1em; }
+    .project-card h3, .resource-card h3 { position: relative; z-index: 1; margin-bottom: 8px; font-size: 24px; }
+    .project-card p, .resource-card p { position: relative; z-index: 1; margin: 0; color: var(--muted); font-size: 13px; }
+    .resource-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 17px; margin-top: 34px; }
+    .resource-card {
+      position: relative;
+      display: flex;
+      min-height: 200px;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 23px;
+      border: 1px solid #35405e;
+      border-radius: 16px;
+      background: var(--navy-card);
+      transition: transform .2s ease, border-color .2s ease;
+    }
+    .resource-card:hover { transform: translateY(-4px); border-color: #819dff; }
+    .resource-card h3 { margin-top: 17px; color: #fff; }
+    .resource-card p { margin-bottom: 16px; color: #c1cbe2; }
+    .resource-link { margin-top: auto; color: #c5d0ff; font-size: 12px; font-weight: 700; text-decoration: none; }
+    .resource-link:hover { color: #ffe16b; }
+    .resource-icon { display: grid; width: 36px; height: 36px; place-items: center; border-radius: 11px; background: #29385f; color: #ffe16b; font: 700 14px/1 var(--heading-font); }
+    .contact-card { display: grid; grid-template-columns: .85fr 1.15fr; gap: 60px; padding: clamp(26px, 5vw, 54px); border: 1px solid var(--line); border-radius: 22px; background: var(--paper); box-shadow: var(--shadow); }
+    .contact-copy p:not(.eyebrow) { color: var(--muted); }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 25px; }
+    .footer-links a { font-size: 12px; font-weight: 700; text-decoration: none; }
+    .contact-form { display: grid; gap: 14px; }
+    .field-label { display: grid; gap: 6px; color: var(--muted); font-size: 12px; font-weight: 700; }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--page);
+      color: var(--ink);
+      padding: 12px 14px;
+    }
+    .contact-form textarea { min-height: 112px; resize: vertical; }
+    .contact-form .button { justify-self: start; cursor: pointer; }
+    .site-footer { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding-block: 26px 102px; color: var(--muted); font-size: 11px; }
+    .footer-name { color: var(--ink); font: 700 16px/1 var(--heading-font); }
+    .editor-only { display: none !important; }
+    .edit-mode [data-edit-key], .edit-mode [data-field] {
+      border-radius: 3px;
+      outline: 1px dashed rgb(94 119 235 / 62%);
+      outline-offset: 2px;
+      cursor: text;
+    }
+    .edit-mode [data-edit-key]:focus, .edit-mode [data-field]:focus { background: rgb(255 225 107 / 17%); }
+    .edit-mode .editor-only { display: inline-flex !important; }
+    .edit-mode .editor-action { display: inline-flex !important; }
+    .edit-mode .resource-edit { display: inline-flex !important; }
+    .edit-mode .remove-card {
+      position: absolute;
+      z-index: 5;
+      top: 12px;
+      right: 12px;
+      display: inline-flex;
+      min-height: 30px;
+      align-items: center;
+      padding: 0 10px;
+      border: 1px solid var(--line);
+      border-radius: 99px;
+      background: var(--paper);
+      cursor: pointer;
+      font-size: 10px;
+      font-weight: 700;
+    }
+    .edit-mode .timeline-item { padding-right: 76px; }
+    .editor-action, .resource-edit { display: none !important; }
+    .inline-add {
+      min-height: 36px;
+      padding: 0 13px;
+      border: 1px dashed #819dff;
+      border-radius: 99px;
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .photo-upload-input { display: none; }
+    .edit-toolbar {
+      position: fixed;
+      z-index: 30;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      min-height: 68px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+      border-top: 1px solid var(--line);
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      box-shadow: 0 -10px 32px rgb(30 43 78 / 10%);
+      backdrop-filter: blur(18px);
+    }
+    .edit-toolbar .button { min-height: 42px; padding-inline: 15px; cursor: pointer; font-size: 12px; }
+    .edit-toolbar .button-secondary { background: var(--page); }
+    .edit-status { min-width: 80px; color: var(--muted); font-size: 11px; text-align: center; }
+    .editor-notice { position: fixed; z-index: 40; right: 18px; bottom: 84px; max-width: min(380px, calc(100vw - 36px)); padding: 12px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); box-shadow: var(--shadow); color: var(--ink); font-size: 12px; }
+    dialog {
+      width: min(760px, calc(100% - 32px));
+      max-height: min(85vh, 760px);
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: var(--paper);
+      color: var(--ink);
+      box-shadow: 0 28px 90px rgb(10 16 35 / 35%);
+    }
+    dialog::backdrop { background: rgb(7 12 27 / 65%); backdrop-filter: blur(4px); }
+    .dialog-inner { padding: 24px; }
+    .dialog-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 13px; }
+    .dialog-heading h2 { margin: 0; font-size: 25px; }
+    .code-output { display: block; width: 100%; height: min(55vh, 480px); padding: 14px; border: 1px solid var(--line); border-radius: 9px; background: var(--page); color: var(--ink); font: 11px/1.5 ui-monospace, Consolas, monospace; resize: vertical; }
+    .dialog-actions { display: flex; justify-content: flex-end; gap: 9px; margin-top: 13px; }
+    .dialog-actions .button { cursor: pointer; }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .65s ease, transform .65s cubic-bezier(.2,.7,.2,1); }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    .stagger > :nth-child(1) { animation: hero-enter .6s .08s both cubic-bezier(.2,.75,.2,1); }
+    .stagger > :nth-child(2) { animation: hero-enter .6s .2s both cubic-bezier(.2,.75,.2,1); }
+    .stagger > :nth-child(3) { animation: hero-enter .6s .32s both cubic-bezier(.2,.75,.2,1); }
+    .stagger > :nth-child(4) { animation: hero-enter .6s .44s both cubic-bezier(.2,.75,.2,1); }
+    @keyframes hero-enter { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes highlight-sweep { to { transform: scaleX(1); } }
+    @keyframes sticker-in { from { opacity: 0; transform: translateY(20px) rotate(0); } to { opacity: 1; transform: translateY(0) rotate(9deg); } }
+    @keyframes pulse { 70% { box-shadow: 0 0 0 7px rgb(52 183 123 / 0%); } 100% { box-shadow: 0 0 0 0 rgb(52 183 123 / 0%); } }
+    @keyframes photo-float { 0%, 100% { transform: translateY(0) rotate(-3deg); } 50% { transform: translateY(-9px) rotate(-1.5deg); } }
+    @media (max-width: 850px) {
+      .header-inner { min-height: 70px; flex-wrap: wrap; justify-content: space-between; gap: 0 15px; padding-block: 12px; }
+      .main-nav { order: 3; width: 100%; justify-content: space-between; padding-top: 10px; }
+      .section { padding-block: 78px; }
+      .hero { min-height: auto; grid-template-columns: 1fr .78fr; gap: 20px; padding-block: 80px 90px; }
+      .hero h1 { font-size: clamp(66px, 12vw, 108px); }
+      .hero-art { min-height: 310px; }
+      .hero-sticker { width: 96px; height: 96px; font-size: 34px; }
+      .about-grid, .photo-grid { gap: 38px; }
+      .photo-frame, .photo-frame img { min-height: 320px; }
+      .project-grid, .resource-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .contact-card { gap: 35px; }
+    }
+    @media (max-width: 600px) {
+      .container { width: calc(100% - 36px); }
+      .brand { font-size: 16px; }
+      .main-nav { gap: 8px; }
+      .main-nav a { font-size: 10px; }
+      .theme-toggle { min-width: 38px; min-height: 36px; padding-inline: 9px; font-size: 11px; }
+      .section { padding-block: 66px; }
+      .hero { grid-template-columns: 1fr; gap: 8px; padding-block: 67px 72px; }
+      .hero h1 { font-size: clamp(70px, 18vw, 112px); }
+      .hero-intro { max-width: 420px; font-size: 15px; }
+      .status-badge { margin-top: 24px; }
+      .hero-art { min-height: 265px; }
+      .hero-blob { width: 250px; }
+      .hero-sticker { width: 78px; height: 78px; border-radius: 23px; font-size: 29px; box-shadow: 8px 9px 0 #ed9fc1; }
+      .hero-note { right: 7%; bottom: 3%; }
+      .about-grid, .photo-grid, .contact-card { grid-template-columns: 1fr; gap: 30px; }
+      .facts-card { padding: 20px; }
+      .photo-grid { gap: 48px; }
+      .photo-frame-wrap { width: min(100%, 350px); }
+      .photo-frame, .photo-frame img { min-height: 300px; }
+      .section-heading-row { align-items: flex-start; flex-direction: column; }
+      .project-grid, .resource-grid { grid-template-columns: 1fr; }
+      .project-card { min-height: 215px; }
+      .project-number { margin-bottom: 28px; }
+      .resource-card { min-height: 175px; }
+      .contact-card { padding: 24px 20px; }
+      .site-footer { flex-wrap: wrap; padding-bottom: 112px; }
+      .site-footer > :last-child { width: 100%; }
+      .edit-toolbar { justify-content: space-around; gap: 5px; padding-inline: 8px; }
+      .edit-toolbar .button { min-height: 39px; padding-inline: 11px; font-size: 10px; }
+      .edit-status { display: none; }
+    }
+    @media (max-width: 370px) {
+      .container { width: calc(100% - 28px); }
+      .main-nav a { font-size: 9px; }
+      .hero h1 { font-size: 19vw; }
+      .button { padding-inline: 14px; }
+      .fact-row { font-size: 12px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Vishesh Yadav home"><span data-edit-key="brand-name">Vishesh Yadav</span><span aria-hidden="true">.</span></a>
       <nav class="main-nav" aria-label="Main navigation">
-        <a href="#lab">Motion lab</a>
-        <a href="#studies">Studies</a>
-        <a href="#about">About</a>
+        <a href="#about" data-edit-key="nav-about">About</a>
+        <a href="#photo" data-edit-key="nav-photo">Photo</a>
+        <a href="#learning" data-edit-key="nav-learning">Learning</a>
+        <a href="#projects" data-edit-key="nav-projects">Projects</a>
+        <a href="#resources" data-edit-key="nav-resources">Resources</a>
+        <a href="#contact" data-edit-key="nav-contact">Contact</a>
       </nav>
-      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark theme">
-        <span class="theme-icon" aria-hidden="true">☼</span>
-        <span class="theme-label">Light</span>
-      </button>
-    </header>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark theme"><span aria-hidden="true">☾</span><span id="theme-label">Dark</span></button>
+    </div>
+  </header>
 
-    <main id="main">
-      <section class="hero section-wrap" id="top" aria-labelledby="hero-title">
-        <div class="hero-copy reveal">
-          <p class="eyebrow"><span class="eyebrow-dot"></span> BCA student <span class="eyebrow-slash">/</span> web developer</p>
-          <h1 id="hero-title">Building the web,<br /><span>one frame at a time.</span></h1>
-          <p class="hero-intro">I'm Vishesh. I bring together code, motion, and dimensional design to make digital experiences feel a little more alive.</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#lab">Explore the motion lab <span aria-hidden="true">↘</span></a>
-            <a class="text-link" href="#studies">See the studies <span aria-hidden="true">↓</span></a>
+  <main id="top">
+    <section class="hero container" aria-labelledby="hero-title">
+      <div class="hero-copy stagger">
+        <p class="eyebrow" data-edit-key="hero-eyebrow">A student who loves to make things</p>
+        <h1 id="hero-title"><span class="hero-name-line" data-edit-key="hero-first-name">Vishesh</span><span class="hero-name-line last-name" data-edit-key="hero-last-name">Yadav</span></h1>
+        <p class="hero-intro" data-edit-key="hero-intro">BCA student at SRMU, learning how the web works and building my first things one curious click at a time.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#projects"><span data-edit-key="hero-work-button">See my work</span><span aria-hidden="true">↘</span></a>
+          <a class="button button-secondary" href="#contact"><span data-edit-key="hero-contact-button">Get in touch</span><span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="status-badge"><span class="pulse-dot" aria-hidden="true"></span><span data-edit-key="learning-status">Currently learning JavaScript</span></div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="hero-blob"></div>
+        <div class="hero-sticker">VY</div>
+        <span class="sparkle sparkle-one">✳</span><span class="sparkle sparkle-two">✦</span>
+        <span class="hero-note" data-edit-key="hero-note">Learning out loud</span>
+      </div>
+    </section>
+
+    <section class="section container reveal" id="about" aria-labelledby="about-title">
+      <div class="about-grid">
+        <div class="about-copy">
+          <p class="eyebrow" data-edit-key="about-eyebrow">A little about me</p>
+          <h2 id="about-title" data-edit-key="about-title-text">Curious today.<br>Building for tomorrow.</h2>
+          <p data-edit-key="about-bio">I'm Vishesh, a BCA student at SRMU starting my web development journey. I enjoy learning by doing: trying new ideas, figuring out what went wrong, and turning small experiments into something I can share.</p>
+          <p data-edit-key="about-bio-extra">This page is my little corner of the internet to keep track of what I'm learning and where I want to go next.</p>
+        </div>
+        <aside class="facts-card" aria-label="Quick facts">
+          <h3 data-edit-key="facts-title">Quick facts</h3>
+          <div class="fact-row"><span data-edit-key="fact-studying-label">Studying</span><strong data-edit-key="fact-studying">BCA</strong></div>
+          <div class="fact-row"><span data-edit-key="fact-university-label">University</span><strong data-edit-key="fact-university">SRMU</strong></div>
+          <div class="fact-row"><span data-edit-key="fact-focus-label">Focus</span><strong data-edit-key="fact-focus">Web development</strong></div>
+          <div class="fact-row"><span data-edit-key="fact-next-label">Next skill</span><strong data-edit-key="fact-next">JavaScript</strong></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section photo-section reveal" id="photo" aria-labelledby="photo-title">
+      <div class="container photo-grid">
+        <div>
+          <p class="eyebrow" data-edit-key="photo-eyebrow">The person behind the pixels</p>
+          <h2 id="photo-title" data-edit-key="photo-title-text">Behind the screen.</h2>
+          <p class="section-intro" data-edit-key="photo-description">A face for the name, whenever I'm ready to share one. For now, here's a little placeholder that you can make your own.</p>
+          <div class="photo-controls editor-only">
+            <button class="button" id="upload-photo" type="button">Upload your photo</button>
+            <button class="button" id="remove-photo" type="button">Remove photo</button>
           </div>
-          <div class="hero-footnote"><span class="footnote-rule"></span> Curious by nature. Building with intention.</div>
+          <input class="photo-upload-input" id="photo-file" type="file" accept="image/*">
+          <p class="photo-hint editor-only">Your photo is resized to 700px and saved in this browser.</p>
         </div>
-
-        <div class="hero-visual reveal" aria-label="Interactive 3D animation preview">
-          <div class="visual-heading"><span>Motion study / 001</span><span class="live-indicator"><i></i> Live scene</span></div>
-          <div class="hero-scene" id="hero-scene">
-            <div class="scene-backdrop" aria-hidden="true"><span class="scene-orbit orbit-one"></span><span class="scene-orbit orbit-two"></span><span class="scene-crosshair">+</span></div>
-            <div class="scene-canvas" id="scene-canvas" aria-label="Interactive 3D animated object. Drag to orbit the view."></div>
-            <div class="scene-caption"><span class="caption-index">01</span><span>Position study</span><span class="caption-line"></span><span>00:03</span></div>
-            <div class="scene-hint" aria-hidden="true">DRAG TO ORBIT <span>↗</span></div>
+        <div class="photo-frame-wrap">
+          <div class="photo-offset" aria-hidden="true"></div>
+          <div class="photo-frame" id="photo-frame">
+            <span class="photo-placeholder" id="photo-placeholder">VY</span>
+            <img id="profile-photo" alt="Vishesh Yadav">
+            <span class="photo-caption" data-edit-key="photo-caption">A work in progress</span>
           </div>
-          <div class="visual-footer"><span>WEBGL / THREE.JS</span><span>INTERACTIVE STUDY</span><span class="visual-footer-mark">VY—01</span></div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="lab-section" id="lab" aria-labelledby="lab-title">
-        <div class="section-wrap">
-          <div class="section-heading reveal">
-            <div>
-              <p class="eyebrow"><span class="eyebrow-number">01</span> The motion lab</p>
-              <h2 id="lab-title">See every frame.<br /><span>Shape every layer.</span></h2>
-            </div>
-            <p class="section-intro">A small interactive study in motion design. Scrub the timeline, reveal the in-between poses, and orbit the scene to see how each layer sits in 3D space.</p>
+    <section class="section container reveal" id="learning" aria-labelledby="learning-title">
+      <div class="section-heading-row">
+        <div>
+          <p class="eyebrow" data-edit-key="learning-eyebrow">Little by little</p>
+          <h2 id="learning-title" data-edit-key="learning-title-text">My learning path.</h2>
+          <p class="section-intro" data-edit-key="learning-description">Every new skill starts with one small step. Here's what I'm exploring.</p>
+        </div>
+        <button class="inline-add editor-only" id="add-step" type="button">+ Step</button>
+      </div>
+      <div class="timeline">
+        <ol class="timeline-list" id="timeline-list" aria-label="Learning timeline"></ol>
+      </div>
+    </section>
+
+    <section class="section container reveal" id="projects" aria-labelledby="projects-title">
+      <div class="section-heading-row">
+        <div>
+          <p class="eyebrow" data-edit-key="projects-eyebrow">Things I've made</p>
+          <h2 id="projects-title" data-edit-key="projects-title-text">Learning by building.</h2>
+          <p class="section-intro" data-edit-key="projects-description">A few experiments and works in progress. More will find their way here as I learn.</p>
+        </div>
+        <button class="inline-add editor-only" id="add-project" type="button">+ Project</button>
+      </div>
+      <div class="project-grid" id="project-grid"></div>
+    </section>
+
+    <section class="section resources-section reveal" id="resources" aria-labelledby="resources-title">
+      <div class="container">
+        <p class="eyebrow" data-edit-key="resources-eyebrow">Bookmarks worth keeping</p>
+        <h2 id="resources-title" data-edit-key="resources-title-text">My favourite resources.</h2>
+        <p class="section-intro" data-edit-key="resources-description">A few friendly corners of the internet that help me learn and keep going.</p>
+        <button class="inline-add editor-only" id="add-resource" type="button" style="margin-top:24px">+ Resource</button>
+        <div class="resource-grid" id="resource-grid"></div>
+      </div>
+    </section>
+
+    <section class="section container reveal" id="contact" aria-labelledby="contact-title">
+      <div class="contact-card">
+        <div class="contact-copy">
+          <p class="eyebrow" data-edit-key="contact-eyebrow">Say hello</p>
+          <h2 id="contact-title" data-edit-key="contact-title-text">Let's connect.</h2>
+          <p data-edit-key="contact-description">Have a suggestion, a resource I should know about, or just want to say hi? My inbox is open.</p>
+          <div class="footer-links">
+            <a href="mailto:vishesh@example.com" data-edit-key="contact-email-label">Email</a>
+            <a href="https://github.com/" target="_blank" rel="noreferrer" data-edit-key="contact-github-label">GitHub</a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" data-edit-key="contact-linkedin-label">LinkedIn</a>
           </div>
-
-          <div class="lab-workspace reveal">
-            <div class="lab-viewer">
-              <div class="viewer-topbar"><span><span class="viewer-status"></span> PLAYBACK VIEW</span><span id="frame-readout">FRAME 018 / 060</span></div>
-              <div class="lab-scene-wrap" id="lab-scene-wrap">
-                <div class="lab-grid" aria-hidden="true"></div>
-                <div class="scene-canvas" id="lab-scene" aria-label="Interactive 3D animation study. Drag to orbit the scene."></div>
-                <div class="axis-label axis-x" aria-hidden="true">X</div><div class="axis-label axis-y" aria-hidden="true">Y</div>
-                <div class="viewer-corner-label">PERSPECTIVE <span>▾</span></div>
-                <div class="viewer-coordinate" id="coordinate-readout">X 0.00&nbsp;&nbsp; Y 0.00&nbsp;&nbsp; Z 0.00</div>
-              </div>
-              <div class="timeline">
-                <div class="timeline-tools">
-                  <button class="play-button" id="play-toggle" type="button" aria-label="Pause animation" aria-pressed="true"><span class="play-glyph" aria-hidden="true">Ⅱ</span></button>
-                  <span class="timeline-time" id="time-readout">00:00:18</span>
-                  <div class="timeline-track-wrap">
-                    <input id="timeline" class="timeline-range" type="range" min="0" max="60" value="18" aria-label="Animation timeline, frame 18 of 60" />
-                    <div class="keyframe-markers" aria-hidden="true"><i style="--at: 0%"></i><i style="--at: 25%"></i><i style="--at: 52%"></i><i style="--at: 78%"></i><i style="--at: 100%"></i></div>
-                  </div>
-                  <span class="timeline-fps">24 FPS</span>
-                </div>
-                <div class="timeline-labels"><span>00:00</span><span>00:01</span><span>00:02</span><span>00:03</span></div>
-              </div>
-            </div>
-
-            <aside class="lab-controls" aria-label="Animation controls">
-              <div class="controls-heading"><span>Scene controls</span><span class="controls-menu" aria-hidden="true">•••</span></div>
-              <div class="control-group">
-                <p class="control-label">DISPLAY</p>
-                <label class="switch-row"><span><i class="layer-swatch swatch-ghost"></i><span class="switch-copy"><strong>Onion skins</strong><small>Previous + next poses</small></span></span><input class="switch-input" type="checkbox" id="onion-toggle" checked /><span class="switch-ui" aria-hidden="true"></span></label>
-                <label class="switch-row"><span><i class="layer-swatch swatch-wire"></i><span class="switch-copy"><strong>Contour layers</strong><small>Show the shape structure</small></span></span><input class="switch-input" type="checkbox" id="contour-toggle" checked /><span class="switch-ui" aria-hidden="true"></span></label>
-              </div>
-              <div class="control-group layer-group">
-                <p class="control-label">ANIMATION LAYERS <span>03</span></p>
-                <button class="layer-row" type="button" data-layer="path" aria-pressed="true" aria-label="Hide path and position layer"><span class="layer-number">01</span><span class="layer-color color-blue"></span><span class="layer-name">Path / position</span><span class="layer-state">●</span></button>
-                <button class="layer-row" type="button" data-layer="ghost" aria-pressed="true" aria-label="Hide ghost and timing layer"><span class="layer-number">02</span><span class="layer-color color-pink"></span><span class="layer-name">Ghost / timing</span><span class="layer-state">●</span></button>
-                <button class="layer-row" type="button" data-layer="form" aria-pressed="true" aria-label="Hide form and volume layer"><span class="layer-number">03</span><span class="layer-color color-yellow"></span><span class="layer-name">Form / volume</span><span class="layer-state">●</span></button>
-              </div>
-              <div class="control-group keyframe-group">
-                <p class="control-label">KEY POSES <span>05</span></p>
-                <div class="keyframe-buttons" aria-label="Jump to key pose">
-                  <button type="button" data-frame="0" aria-label="Go to frame 0">01</button>
-                  <button type="button" data-frame="15" aria-label="Go to frame 15">02</button>
-                  <button type="button" data-frame="31" aria-label="Go to frame 31">03</button>
-                  <button type="button" data-frame="47" aria-label="Go to frame 47">04</button>
-                  <button type="button" data-frame="60" aria-label="Go to frame 60">05</button>
-                </div>
-              </div>
-              <div class="controls-note"><span class="note-mark">↗</span><span>Drag in the scene to orbit. Use the timeline to move frame by frame.</span></div>
-            </aside>
-          </div>
-          <div class="lab-legend reveal"><span><i class="legend-dot legend-blue"></i> Previous pose</span><span><i class="legend-dot legend-yellow"></i> Current frame</span><span><i class="legend-dot legend-pink"></i> Next pose</span><span class="legend-definition">Onion-skinning reveals nearby frames at once.</span></div>
+          <p class="photo-hint" data-edit-key="contact-link-hint">Personal profile links can be updated by editing this page's HTML.</p>
         </div>
-      </section>
+        <form class="contact-form" id="contact-form">
+          <label class="field-label" for="visitor-name"><span data-edit-key="form-name-label">Your name</span><input id="visitor-name" name="name" autocomplete="name" required placeholder="Jane Doe"></label>
+          <label class="field-label" for="visitor-message"><span data-edit-key="form-message-label">Your message</span><textarea id="visitor-message" name="message" required placeholder="Hi Vishesh, ..."></textarea></label>
+          <button class="button button-primary" type="submit"><span data-edit-key="form-submit-label">Open email app</span><span aria-hidden="true">↗</span></button>
+        </form>
+      </div>
+    </section>
+  </main>
 
-      <section class="studies-section section-wrap" id="studies" aria-labelledby="studies-title">
-        <div class="section-heading studies-heading reveal">
-          <div><p class="eyebrow"><span class="eyebrow-number">02</span> A few directions</p><h2 id="studies-title">Ideas, in <span>progress.</span></h2></div>
-          <p class="section-intro">A collection of visual experiments exploring shape, timing, and the space between frames.</p>
-        </div>
-        <div class="study-grid">
-          <article class="study-card study-card-blue reveal">
-            <div class="study-art art-orbit" aria-hidden="true"><span class="art-ring ring-a"></span><span class="art-ring ring-b"></span><span class="art-core"></span><span class="art-dot"></span></div>
-            <div class="study-meta"><span>01 / SPATIAL MOTION</span><span>3D</span></div>
-            <h3>Orbit study</h3><p>One form, a looping path, and a different perspective from every angle.</p>
-          </article>
-          <article class="study-card study-card-pink reveal">
-            <div class="study-art art-frames" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
-            <div class="study-meta"><span>02 / FRAME TIMING</span><span>2D</span></div>
-            <h3>In-between</h3><p>Small shifts in spacing turn a sequence of poses into a gesture.</p>
-          </article>
-          <article class="study-card study-card-yellow reveal">
-            <div class="study-art art-layers" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-            <div class="study-meta"><span>03 / VISUAL SYSTEMS</span><span>WEB</span></div>
-            <h3>Layer by layer</h3><p>Color, contour, and depth working together as one visual language.</p>
-          </article>
-        </div>
-      </section>
+  <footer class="container site-footer">
+    <span class="footer-name" data-edit-key="footer-name">Vishesh Yadav</span>
+    <span data-edit-key="footer-copyright">© 2026 Vishesh Yadav.</span>
+    <span data-edit-key="footer-note">Made with curiosity and a few browser tabs.</span>
+  </footer>
 
-      <section class="about-section" id="about" aria-labelledby="about-title">
-        <div class="section-wrap about-inner">
-          <div class="about-index reveal"><span>03</span><span class="about-index-line"></span><span>ABOUT</span></div>
-          <div class="about-copy reveal">
-            <p class="eyebrow">A little context</p>
-            <h2 id="about-title">Code is the canvas.<br /><span>Curiosity is the tool.</span></h2>
-            <p>I'm Vishesh Yadav, a BCA student and web developer. I'm interested in the point where thoughtful interfaces meet motion: how a transition can guide attention, how a layer can add meaning, and how a bit of depth can change the feel of a page.</p>
-          </div>
-          <div class="about-signoff reveal"><span class="signoff-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Vishesh<br />Yadav</span></div>
-        </div>
-      </section>
-    </main>
+  <div class="edit-toolbar" id="edit-bar" aria-label="Page editing tools">
+    <button class="button button-primary" id="edit-toggle" type="button">Edit this page</button>
+    <span class="edit-status" id="edit-status" aria-live="polite">Changes save here</span>
+    <button class="button button-secondary" id="reset-page" type="button">Reset</button>
+    <button class="button button-secondary" id="copy-site-code" type="button">Copy site code</button>
+  </div>
+  <div class="editor-notice" id="editor-notice" role="status" aria-live="polite" hidden></div>
 
-    <footer class="site-footer section-wrap">
-      <a class="brand footer-brand" href="#top"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Vishesh Yadav<span class="brand-period">.</span></span></a>
-      <span class="footer-note">Made with curiosity <span aria-hidden="true">✳</span> and a few frames.</span>
-      <a class="back-top" href="#top">Back to top <span aria-hidden="true">↑</span></a>
-    </footer>
+  <dialog id="code-dialog" aria-labelledby="code-dialog-title">
+    <div class="dialog-inner">
+      <div class="dialog-heading"><h2 id="code-dialog-title">Your clean site code</h2><button class="icon-button" id="close-dialog" type="button" aria-label="Close dialog">×</button></div>
+      <p class="section-intro">This copy includes your page edits and photo, without the editing toolbar or editor state.</p>
+      <textarea class="code-output" id="code-output" readonly spellcheck="false" aria-label="Cleaned HTML site code"></textarea>
+      <div class="dialog-actions"><button class="button button-secondary" id="close-code" type="button">Close</button><button class="button button-primary" id="copy-code" type="button">Copy HTML</button></div>
+    </div>
+  </dialog>
 
-    <script type="module" src="/src/main.js"></script>
-  </body>
+  <script>
+    (() => {
+      const CONTENT_KEY = 'vishesh-portfolio-content-v1';
+      const THEME_KEY = 'vishesh-portfolio-theme-v1';
+      const PHOTO_KEY = 'vishesh-portfolio-photo-v1';
+      const EDITOR_KEY = 'vishesh-portfolio-editor-v1';
+      const editorEnabled = Boolean(document.querySelector('#edit-bar'));
+      const defaultSteps = [
+        { id: 'html5', title: 'HTML5', description: 'Learning how to give pages a clear, meaningful structure.', status: 'Done' },
+        { id: 'css', title: 'CSS', description: 'Exploring layouts, color, type, and all the small details that bring a page to life.', status: 'Done' },
+        { id: 'designing', title: 'Designing web pages', description: 'Putting structure and style together to make a complete page.', status: 'Done' },
+        { id: 'javascript', title: 'JavaScript', description: 'Starting to make websites interactive, one concept at a time.', status: 'In progress' },
+        { id: 'git', title: 'Git and GitHub', description: 'Next up: learning to keep track of changes and share my work.', status: 'Up next' }
+      ];
+      const defaultProjects = [
+        { id: 'portfolio', title: 'This portfolio', description: 'My first little corner of the web, made while learning HTML and CSS.', url: '#top' },
+        { id: 'coming-1', title: 'A new idea', description: 'A small project will find its way here soon.', url: '' },
+        { id: 'coming-2', title: 'Coming soon', description: 'One idea at a time. Check back as I keep learning.', url: '' }
+      ];
+      const defaultResources = [
+        { id: 'mdn', title: 'MDN Web Docs', description: 'A trusted guide and reference for learning the web platform.', url: 'https://developer.mozilla.org/' },
+        { id: 'css-tricks', title: 'CSS-Tricks', description: 'Helpful articles and ideas for understanding CSS and front-end work.', url: 'https://css-tricks.com/' },
+        { id: 'codewithharry', title: 'CodeWithHarry', description: 'Friendly programming tutorials and learning resources.', url: 'https://www.codewithharry.com/' }
+      ];
+      const defaultContent = Object.create(null);
+      const contentNodes = document.querySelectorAll('[data-edit-key]');
+      contentNodes.forEach((node) => { defaultContent[node.dataset.editKey] = node.textContent; });
+      const readJson = (key, fallback) => {
+        try {
+          const value = localStorage.getItem(key);
+          return value ? JSON.parse(value) : fallback;
+        } catch (error) {
+          console.error(`Unable to read ${key} from local storage.`, error);
+          return fallback;
+        }
+      };
+      let state = editorEnabled ? readJson(CONTENT_KEY, {}) : {};
+      if (!state || typeof state !== 'object' || Array.isArray(state)) state = {};
+      const report = (message) => {
+        const notice = document.querySelector('#editor-notice');
+        if (!notice) return;
+        notice.textContent = message;
+        notice.hidden = false;
+        window.clearTimeout(report.timeout);
+        report.timeout = window.setTimeout(() => { notice.hidden = true; }, 4000);
+      };
+      const persist = () => {
+        if (!editorEnabled) return;
+        try {
+          const content = {};
+          document.querySelectorAll('[data-edit-key]').forEach((node) => { content[node.dataset.editKey] = node.textContent; });
+          const projects = [...document.querySelectorAll('.project-card')].map((card) => ({
+            id: card.dataset.id,
+            title: card.querySelector('[data-field="title"]').textContent,
+            description: card.querySelector('[data-field="description"]').textContent,
+            url: card.dataset.url || ''
+          }));
+          const steps = [...document.querySelectorAll('.timeline-item')].map((item) => ({
+            id: item.dataset.id,
+            title: item.querySelector('[data-field="title"]').textContent,
+            description: item.querySelector('[data-field="description"]').textContent,
+            status: item.querySelector('[data-field="status"]').textContent
+          }));
+          const resources = [...document.querySelectorAll('.resource-card')].map((card) => ({
+            id: card.dataset.id,
+            title: card.querySelector('[data-field="title"]').textContent,
+            description: card.querySelector('[data-field="description"]').textContent,
+            url: card.dataset.url || ''
+          }));
+          state = { ...state, content, projects, steps, resources };
+          localStorage.setItem(CONTENT_KEY, JSON.stringify(state));
+          const status = document.querySelector('#edit-status');
+          if (status) status.textContent = 'Saved in this browser';
+        } catch (error) {
+          console.error('Unable to save page edits to local storage.', error);
+          report('Your browser could not save this change. Check available local storage.');
+          const status = document.querySelector('#edit-status');
+          if (status) status.textContent = 'Save failed';
+        }
+      };
+      const restoreContent = () => {
+        if (!editorEnabled || !state.content || typeof state.content !== 'object') return;
+        document.querySelectorAll('[data-edit-key]').forEach((node) => {
+          if (typeof state.content[node.dataset.editKey] === 'string') node.textContent = state.content[node.dataset.editKey];
+        });
+      };
+      const safeUrl = (url) => /^(https?:\/\/|mailto:|#)/i.test(url.trim());
+      const removeButton = (label) => {
+        const button = document.createElement('button');
+        button.className = 'remove-card editor-only';
+        button.type = 'button';
+        button.textContent = 'Remove';
+        button.setAttribute('aria-label', `Remove ${label}`);
+        button.addEventListener('click', () => { button.closest('.project-card, .timeline-item, .resource-card').remove(); persist(); });
+        return button;
+      };
+      const field = (text, name, id, tag = 'span') => {
+        const node = document.createElement(tag);
+        node.dataset.field = name;
+        node.dataset.owner = id;
+        node.textContent = text;
+        return node;
+      };
+      const renderProjects = () => {
+        const host = document.querySelector('#project-grid');
+        const projects = Array.isArray(state.projects) ? state.projects : defaultProjects;
+        host.replaceChildren();
+        projects.forEach((project, index) => {
+          const card = document.createElement('article');
+          card.className = 'project-card reveal';
+          card.dataset.id = project.id;
+          card.dataset.url = project.url || '';
+          const number = document.createElement('span');
+          number.className = 'project-number';
+          number.textContent = `PROJECT ${String(index + 1).padStart(2, '0')}`;
+          const title = field(project.title, 'title', project.id, 'h3');
+          const description = field(project.description, 'description', project.id, 'p');
+          card.append(number, title, description, removeButton(project.title));
+          if (project.url && safeUrl(project.url)) {
+            card.tabIndex = 0;
+            card.setAttribute('aria-label', `${project.title}, project`);
+          }
+          host.append(card);
+        });
+        observeNewReveals(host);
+      };
+      const renderSteps = () => {
+        const host = document.querySelector('#timeline-list');
+        const steps = Array.isArray(state.steps) ? state.steps : defaultSteps;
+        host.replaceChildren();
+        steps.forEach((step) => {
+          const item = document.createElement('li');
+          item.className = 'timeline-item reveal';
+          item.dataset.id = step.id;
+          item.dataset.status = step.status || 'Up next';
+          const title = field(step.title, 'title', step.id, 'h3');
+          title.className = 'step-title';
+          const status = field(step.status || 'Up next', 'status', step.id);
+          status.className = 'step-status';
+          const description = field(step.description, 'description', step.id, 'p');
+          description.className = 'step-description';
+          item.append(title, status, description, removeButton(step.title));
+          host.append(item);
+        });
+        observeNewReveals(host);
+      };
+      const renderResources = () => {
+        const host = document.querySelector('#resource-grid');
+        const resources = Array.isArray(state.resources) ? state.resources : defaultResources;
+        host.replaceChildren();
+        resources.forEach((resource) => {
+          const card = document.createElement('article');
+          card.className = 'resource-card reveal';
+          card.dataset.id = resource.id;
+          card.dataset.url = resource.url || '';
+          const icon = document.createElement('span');
+          icon.className = 'resource-icon';
+          icon.setAttribute('aria-hidden', 'true');
+          icon.textContent = resource.title.slice(0, 2).toUpperCase();
+          const title = field(resource.title, 'title', resource.id, 'h3');
+          const description = field(resource.description, 'description', resource.id, 'p');
+          const link = document.createElement('a');
+          link.className = 'resource-link';
+          link.dataset.resourceLink = '';
+          link.textContent = resource.url && safeUrl(resource.url) ? 'Visit resource ↗' : 'Add a link ↗';
+          link.href = resource.url && safeUrl(resource.url) ? resource.url : '#resources';
+          link.target = '_blank';
+          link.rel = 'noreferrer';
+          const editLink = document.createElement('button');
+          editLink.type = 'button';
+          editLink.className = 'inline-add resource-edit';
+          editLink.textContent = 'Edit link';
+          editLink.addEventListener('click', () => {
+            const nextUrl = window.prompt('Enter a web link (https://), email link (mailto:), or section link (#).', resource.url || 'https://');
+            if (nextUrl === null) return;
+            if (nextUrl.trim() && !safeUrl(nextUrl)) { report('Use a link beginning with https://, http://, mailto:, or #.'); return; }
+            card.dataset.url = nextUrl.trim();
+            link.href = nextUrl.trim() || '#resources';
+            link.textContent = nextUrl.trim() ? 'Visit resource ↗' : 'Add a link ↗';
+            persist();
+          });
+          card.append(icon, title, description, link, editLink, removeButton(resource.title));
+          host.append(card);
+        });
+        observeNewReveals(host);
+      };
+      const revealObserver = 'IntersectionObserver' in window ? new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: .12 }) : null;
+      function observeNewReveals(host = document) {
+        host.querySelectorAll('.reveal:not(.is-visible)').forEach((node) => {
+          if (revealObserver) revealObserver.observe(node);
+          else node.classList.add('is-visible');
+        });
+      }
+      restoreContent();
+      if (editorEnabled) {
+        if (!Array.isArray(state.projects)) state.projects = defaultProjects;
+        if (!Array.isArray(state.steps)) state.steps = defaultSteps;
+        if (!Array.isArray(state.resources)) state.resources = defaultResources;
+      } else {
+        state.projects = defaultProjects;
+        state.steps = defaultSteps;
+        state.resources = defaultResources;
+      }
+      renderProjects();
+      renderSteps();
+      renderResources();
+      observeNewReveals();
+
+      const root = document.documentElement;
+      const themeButton = document.querySelector('#theme-toggle');
+      const themeLabel = document.querySelector('#theme-label');
+      let theme = 'light';
+      try {
+        theme = localStorage.getItem(THEME_KEY) === 'dark' ? 'dark' : 'light';
+      } catch (error) {
+        console.error('Unable to read the saved theme.', error);
+      }
+      const setTheme = (value, save = true) => {
+        theme = value;
+        root.dataset.theme = value;
+        root.style.colorScheme = value;
+        themeButton.querySelector('[aria-hidden="true"]').textContent = value === 'dark' ? '☀' : '☾';
+        themeLabel.textContent = value === 'dark' ? 'Light' : 'Dark';
+        themeButton.setAttribute('aria-label', `Switch to ${value === 'dark' ? 'light' : 'dark'} theme`);
+        document.querySelector('meta[name="theme-color"]').content = value === 'dark' ? '#10172c' : '#f5f8ff';
+        if (save) {
+          try { localStorage.setItem(THEME_KEY, value); }
+          catch (error) { console.error('Unable to save the theme.', error); report('Your browser could not save the theme choice.'); }
+        }
+      };
+      setTheme(theme, false);
+      themeButton.addEventListener('click', () => setTheme(theme === 'dark' ? 'light' : 'dark'));
+
+      const photo = document.querySelector('#profile-photo');
+      const placeholder = document.querySelector('#photo-placeholder');
+      const displayPhoto = (source) => {
+        if (source) {
+          photo.src = source;
+          photo.hidden = false;
+          placeholder.hidden = true;
+        } else {
+          photo.removeAttribute('src');
+          photo.hidden = true;
+          placeholder.hidden = false;
+        }
+      };
+      try { displayPhoto(localStorage.getItem(PHOTO_KEY)); }
+      catch (error) { console.error('Unable to read the saved photo.', error); }
+      if (editorEnabled) {
+        const fileInput = document.querySelector('#photo-file');
+        document.querySelector('#upload-photo').addEventListener('click', () => fileInput.click());
+        fileInput.addEventListener('change', () => {
+          const file = fileInput.files && fileInput.files[0];
+          if (!file) return;
+          if (!file.type.startsWith('image/')) { report('Please choose an image file.'); fileInput.value = ''; return; }
+          const image = new Image();
+          image.onload = () => {
+            const scale = Math.min(1, 700 / Math.max(image.naturalWidth, image.naturalHeight));
+            const canvas = document.createElement('canvas');
+            canvas.width = Math.max(1, Math.round(image.naturalWidth * scale));
+            canvas.height = Math.max(1, Math.round(image.naturalHeight * scale));
+            const context = canvas.getContext('2d');
+            if (!context) { report('Your browser could not resize this image.'); URL.revokeObjectURL(image.src); fileInput.value = ''; return; }
+            context.drawImage(image, 0, 0, canvas.width, canvas.height);
+            const resized = canvas.toDataURL('image/jpeg', .86);
+            try {
+              localStorage.setItem(PHOTO_KEY, resized);
+              displayPhoto(resized);
+              report('Photo resized and saved in this browser.');
+            } catch (error) {
+              console.error('Unable to save the resized photo.', error);
+              report('The resized photo could not be saved. Try a smaller image or clear browser storage.');
+            } finally {
+              URL.revokeObjectURL(image.src);
+              fileInput.value = '';
+            }
+          };
+          image.onerror = () => { report('This image could not be opened. Please choose another.'); URL.revokeObjectURL(image.src); fileInput.value = ''; };
+          image.src = URL.createObjectURL(file);
+        });
+        document.querySelector('#remove-photo').addEventListener('click', () => {
+          try { localStorage.removeItem(PHOTO_KEY); displayPhoto(''); report('Your photo was removed.'); }
+          catch (error) { console.error('Unable to remove the saved photo.', error); report('Your browser could not remove the saved photo.'); }
+        });
+      }
+
+      document.querySelector('#contact-form').addEventListener('submit', (event) => {
+        event.preventDefault();
+        const form = event.currentTarget;
+        const name = form.elements.name.value.trim();
+        const message = form.elements.message.value.trim();
+        if (!name || !message) { form.reportValidity(); return; }
+        const emailLink = document.querySelector('.footer-links a[href^="mailto:"]');
+        const recipient = emailLink ? emailLink.getAttribute('href').slice(7) : 'vishesh@example.com';
+        const subject = encodeURIComponent(`Hello from ${name}`);
+        const body = encodeURIComponent(`${message}\n\n— ${name}`);
+        window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
+      });
+
+      if (!editorEnabled) return;
+      document.documentElement.classList.add('editor-enabled');
+      const editToggle = document.querySelector('#edit-toggle');
+      const setEditMode = (enabled) => {
+        document.body.classList.toggle('edit-mode', enabled);
+        editToggle.textContent = enabled ? 'Done editing' : 'Edit this page';
+        editToggle.setAttribute('aria-pressed', String(enabled));
+        document.querySelectorAll('[data-edit-key], [data-field]').forEach((node) => {
+          node.contentEditable = enabled ? 'plaintext-only' : 'false';
+          if (enabled) node.spellcheck = true;
+          else node.removeAttribute('spellcheck');
+        });
+        try { localStorage.setItem(EDITOR_KEY, enabled ? 'true' : 'false'); }
+        catch (error) { console.error('Unable to save the editor preference.', error); }
+      };
+      setEditMode(false);
+      document.addEventListener('input', (event) => {
+        if (event.target.matches('[data-edit-key], [data-field]')) persist();
+      });
+      editToggle.addEventListener('click', () => {
+        const enabled = !document.body.classList.contains('edit-mode');
+        setEditMode(enabled);
+        if (!enabled) persist();
+        else report('Click any outlined text to edit it. Changes are saved in this browser.');
+      });
+      document.querySelector('#add-project').addEventListener('click', () => {
+        const id = `project-${Date.now()}`;
+        state.projects.push({ id, title: 'New project', description: 'Describe what you are building.', url: '' });
+        renderProjects();
+        setEditMode(true);
+        persist();
+        document.querySelector(`[data-owner="${id}"][data-field="title"]`).focus();
+      });
+      document.querySelector('#add-step').addEventListener('click', () => {
+        const id = `step-${Date.now()}`;
+        state.steps.push({ id, title: 'New learning step', description: 'Add a little detail about this step.', status: 'Up next' });
+        renderSteps();
+        setEditMode(true);
+        persist();
+        document.querySelector(`[data-owner="${id}"][data-field="title"]`).focus();
+      });
+      document.querySelector('#add-resource').addEventListener('click', () => {
+        const id = `resource-${Date.now()}`;
+        state.resources.push({ id, title: 'New resource', description: 'Why is this resource useful?', url: '' });
+        renderResources();
+        setEditMode(true);
+        persist();
+        document.querySelector(`[data-owner="${id}"][data-field="title"]`).focus();
+      });
+      document.querySelector('#reset-page').addEventListener('click', () => {
+        if (!window.confirm('Reset this page, including saved text and photo, to its original content?')) return;
+        try {
+          [CONTENT_KEY, THEME_KEY, PHOTO_KEY, EDITOR_KEY].forEach((key) => localStorage.removeItem(key));
+          window.location.reload();
+        } catch (error) {
+          console.error('Unable to reset saved page data.', error);
+          report('The page could not reset saved data. Check your browser storage settings.');
+        }
+      });
+
+      const dialog = document.querySelector('#code-dialog');
+      const codeOutput = document.querySelector('#code-output');
+      const makeCleanHtml = () => {
+        const copy = document.documentElement.cloneNode(true);
+        copy.querySelector('#edit-bar')?.remove();
+        copy.querySelector('#editor-notice')?.remove();
+        copy.querySelector('#code-dialog')?.remove();
+        copy.querySelector('#photo-file')?.remove();
+        copy.querySelectorAll('.editor-only, .remove-card, .resource-edit, .editor-action').forEach((node) => node.remove());
+        copy.querySelectorAll('[contenteditable], [data-edit-key], [data-field], [data-owner]').forEach((node) => {
+          node.removeAttribute('contenteditable');
+          node.removeAttribute('data-edit-key');
+          node.removeAttribute('data-field');
+          node.removeAttribute('data-owner');
+          node.removeAttribute('spellcheck');
+        });
+        copy.querySelectorAll('.edit-mode, .editor-enabled').forEach((node) => {
+          node.classList.remove('edit-mode');
+          node.classList.remove('editor-enabled');
+        });
+        copy.querySelectorAll('.project-card, .resource-card').forEach((node) => node.removeAttribute('data-id'));
+        copy.querySelectorAll('.timeline-item').forEach((node) => node.removeAttribute('data-id'));
+        copy.querySelectorAll('.project-card, .resource-card').forEach((node) => node.removeAttribute('data-url'));
+        copy.querySelectorAll('.timeline-item').forEach((node) => node.removeAttribute('data-status'));
+        const image = copy.querySelector('#profile-photo');
+        if (!image.hidden && image.getAttribute('src')) image.hidden = false;
+        copy.querySelector('script')?.remove();
+        const script = document.createElement('script');
+        script.textContent = `(() => {
+  const root = document.documentElement;
+  const button = document.querySelector('#theme-toggle');
+  const label = document.querySelector('#theme-label');
+  const themeKey = 'vishesh-portfolio-theme-v1';
+  let theme = 'light';
+  try { theme = localStorage.getItem(themeKey) === 'dark' ? 'dark' : root.dataset.theme; } catch (error) { console.error('Unable to read the saved theme.', error); }
+  const applyTheme = (value) => {
+    theme = value;
+    root.dataset.theme = value;
+    root.style.colorScheme = value;
+    button.querySelector('[aria-hidden="true"]').textContent = value === 'dark' ? '☀' : '☾';
+    label.textContent = value === 'dark' ? 'Light' : 'Dark';
+    button.setAttribute('aria-label', 'Switch to ' + (value === 'dark' ? 'light' : 'dark') + ' theme');
+    document.querySelector('meta[name="theme-color"]').content = value === 'dark' ? '#10172c' : '#f5f8ff';
+    try { localStorage.setItem(themeKey, value); } catch (error) { console.error('Unable to save the theme.', error); }
+  };
+  applyTheme(theme);
+  button.addEventListener('click', () => applyTheme(theme === 'dark' ? 'light' : 'dark'));
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries, activeObserver) => entries.forEach((entry) => {
+      if (entry.isIntersecting) { entry.target.classList.add('is-visible'); activeObserver.unobserve(entry.target); }
+    }), { threshold: .12 });
+    document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+  } else {
+    document.querySelectorAll('.reveal').forEach((element) => element.classList.add('is-visible'));
+  }
+  document.querySelector('#contact-form').addEventListener('submit', (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const name = form.elements.name.value.trim();
+    const message = form.elements.message.value.trim();
+    if (!name || !message) { form.reportValidity(); return; }
+    const email = document.querySelector('.footer-links a[href^="mailto:"]').getAttribute('href').slice(7);
+    window.location.href = 'mailto:' + email + '?subject=' + encodeURIComponent('Hello from ' + name) + '&body=' + encodeURIComponent(message + '\\n\\n— ' + name);
+  });
+})();`;
+        copy.querySelector('body').append(script);
+        const theme = root.dataset.theme;
+        copy.dataset.theme = theme;
+        return '<!doctype html>\n' + copy.outerHTML;
+      };
+      document.querySelector('#copy-site-code').addEventListener('click', () => {
+        persist();
+        codeOutput.value = makeCleanHtml();
+        dialog.showModal();
+      });
+      const closeDialog = () => dialog.close();
+      document.querySelector('#close-dialog').addEventListener('click', closeDialog);
+      document.querySelector('#close-code').addEventListener('click', closeDialog);
+      document.querySelector('#copy-code').addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(codeOutput.value);
+          report('Clean HTML copied to your clipboard.');
+        } catch (error) {
+          console.error('Clipboard access was unavailable.', error);
+          codeOutput.focus();
+          codeOutput.select();
+          report('Clipboard access is unavailable here. The HTML is selected so you can copy it manually.');
+        }
+      });
+      dialog.addEventListener('click', (event) => {
+        if (event.target === dialog) dialog.close();
+      });
+    })();
+  </script>
+</body>
 </html>
